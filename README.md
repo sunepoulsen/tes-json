@@ -1,19 +1,47 @@
-# TES Spring Boot Library Template
+# TES JSON
 
-This is a template to create new libraries to be used with solutions written with Spring Boot.
+Library for JSON handling
 
-## Content
+## Features
 
-The template provides the following:
+- Encoding of classes as JSON with Jackson
+- Decoding of JSON to classes with Jackson
+- Loading of Jackson modules from the classpath
+- Common utility class for JSON handling.
 
-- Gradle project files
-- README
-- CHANGELOG
-- Gradle plugin to manage the changelog file.
+## Usage
 
-## Existing code
+### Encoding JSON
 
-The template include some existing code to verify that the `build.gradle` is correct.
+To encode a class into JSON do the following:
 
-The code has no purpose besides this and can safely be removed when the template is used.
+```java
+String json = JsonMapper.encode(value);
+```
 
+### Decoding JSON
+
+To decode json into a class do the following:
+
+```java
+String json = "{...}"
+ClassType value = JsonMapper.decode(json, ClassType.class);
+```
+
+### Customize the use of JsonMapper
+
+To use a custom `ObjectMapper` with JsonMapper do:
+
+```java
+ObjectMapper objectMapper = new ObjectMapper();
+
+// Config objectMapper
+// ...
+// ...
+
+JsonMapper jsonMapper = new JsonMapper(objectMapper);
+
+// Use jsonMapper
+String json = jsonMapper.encode(value);
+ClassType value = jsonMapper.decode(json, ClassType.class);
+```

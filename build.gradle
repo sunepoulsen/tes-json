@@ -34,6 +34,10 @@ java {
 }
 
 dependencies {
+    // Jackson Json
+    implementation "com.fasterxml.jackson.core:jackson-databind:${project.property('jackson.version')}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${project.property('jackson.version')}"
+
     // Lombok
     compileOnly "org.projectlombok:lombok:${project.property('lombok.version')}"
     annotationProcessor "org.projectlombok:lombok:${project.property('lombok.version')}"
