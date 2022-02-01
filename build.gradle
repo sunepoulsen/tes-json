@@ -51,7 +51,7 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${project.property('junit-jupiter.version')}"
 
     // Spock
-    testImplementation "org.codehaus.groovy:groovy:${project.property('groovy.version')}"
+    testImplementation "org.codehaus.groovy:groovy-all:${project.property('groovy.version')}"
     testImplementation "org.spockframework:spock-core:${project.property('spock-core.version')}"
     testImplementation "cglib:cglib-nodep:${project.property('cglib-nodep.version')}"
     testImplementation "org.objenesis:objenesis:${project.property('objenesis.version')}"
