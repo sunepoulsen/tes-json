@@ -16,6 +16,12 @@ For release-dates, use date-format: YYYY-MM-DD
 ## Unreleased work
 ### Features
 
+### Fixed
+
+### Security
+
+## 1.0.0 - 2022-03-09
+### Features
 - [TES-8](https://sunepoulsen.atlassian.net/browse/TES-8): Library for JSON handling
 
 ### Fixed
