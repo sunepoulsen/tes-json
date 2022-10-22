@@ -35,24 +35,24 @@ java {
 
 dependencies {
     // Jackson Json
-    api 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     // Logging
-    implementation 'ch.qos.logback:logback-classic:1.2.11'
-    implementation 'org.slf4j:log4j-over-slf4j:1.7.36'
+    implementation 'ch.qos.logback:logback-classic:1.4.4'
+    implementation 'org.slf4j:log4j-over-slf4j:2.0.3'
 
     // JUnit
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.9.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 
     // Spock
-    testImplementation 'org.codehaus.groovy:groovy:3.0.12'
-    testImplementation 'org.spockframework:spock-core:2.1-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy:3.0.13'
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
     testImplementation 'cglib:cglib-nodep:3.3.0'
     testImplementation 'org.objenesis:objenesis:3.2'
 }
