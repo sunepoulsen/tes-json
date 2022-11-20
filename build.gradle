@@ -97,8 +97,18 @@ jacocoTestReport {
     }
 }
 
+dependencyCheck {
+    format='ALL'
+}
+
 sonarqube {
     properties {
+        property 'sonar.dependencyCheck.severity.blocker', '9.0'
+        property 'sonar.dependencyCheck.severity.critical', '7.0'
+        property 'sonar.dependencyCheck.severity.major', '4.0'
+        property 'sonar.dependencyCheck.severity.minor', '0.0'
+
+        property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
         property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check-report.html'
     }
 }
