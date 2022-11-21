@@ -17,6 +17,7 @@ For release-dates, use date-format: YYYY-MM-DD
 ### Features
 
 ### Fixed
+- [TES-49](https://sunepoulsen.atlassian.net/browse/TES-49): Update TES-libraries for code quality
 
 ### Security
 - [TES-22](https://sunepoulsen.atlassian.net/browse/TES-22): Update dependencies to latest versions
