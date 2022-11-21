@@ -1,15 +1,25 @@
-import org.gradle.api.publish.maven.MavenPublication
-
 import java.text.SimpleDateFormat
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.owasp:dependency-check-gradle:7.3.2'
+    }
+}
 
 plugins {
     id 'org.jetbrains.changelog'
     id 'net.researchgate.release'
+    id 'org.sonarqube'
+    id 'jacoco'
 }
 
 apply plugin: 'java-library'
 apply plugin: 'groovy'
 apply plugin: 'maven-publish'
+apply plugin: 'org.owasp.dependencycheck'
 
 group 'dk.sunepoulsen.tes'
 version "${project.property('version')}"
@@ -35,8 +45,8 @@ java {
 
 dependencies {
     // Jackson Json
-    api 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -80,3 +90,29 @@ release {
         requireBranch = 'main'
     }
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
+dependencyCheck {
+    format='ALL'
+}
+
+sonarqube {
+    properties {
+        property 'sonar.dependencyCheck.severity.blocker', '9.0'
+        property 'sonar.dependencyCheck.severity.critical', '7.0'
+        property 'sonar.dependencyCheck.severity.major', '4.0'
+        property 'sonar.dependencyCheck.severity.minor', '0.0'
+
+        property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
+        property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check-report.html'
+    }
+}
+
+tasks.jacocoTestReport.dependsOn tasks.test
+tasks.sonarqube.dependsOn tasks.dependencyCheckAnalyze
+tasks.sonarqube.dependsOn tasks.jacocoTestReport
