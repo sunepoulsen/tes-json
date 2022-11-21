@@ -44,7 +44,7 @@ public class JsonMapper {
     }
 
     public static ObjectMapper springBootObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules();
+        var objectMapper = new ObjectMapper().findAndRegisterModules();
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
         return objectMapper;
