@@ -35,6 +35,20 @@ publishing {
             from components.java
         }
     }
+    repositories {
+        maven {
+            url = "${System.properties['maven.repository.base.url']}/" + (
+                version ==~ /^\d+\.\d+\.\d+$/ ?
+                    "${System.properties['maven.repository.releases']}" :
+                    "${System.properties['maven.repository.snapshots']}"
+            )
+            allowInsecureProtocol = true
+            credentials {
+                username = "${System.properties['maven.repository.username']}"
+                password = "${System.properties['maven.repository.password']}"
+            }
+        }
+    }
 }
 
 java {
