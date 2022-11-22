@@ -22,6 +22,7 @@ For release-dates, use date-format: YYYY-MM-DD
 ### Security
 - [TES-22](https://sunepoulsen.atlassian.net/browse/TES-22): Update dependencies to latest versions
 - [TES-24](https://sunepoulsen.atlassian.net/browse/TES-24): Update dependencies to latest possible version
+- [TES-60](https://sunepoulsen.atlassian.net/browse/TES-60): Update dependencies as part of TES-60.
 
 ## 1.0.0 - 2022-03-09
 ### Features
