@@ -27,6 +27,15 @@ version "${project.property('version')}"
 repositories {
     mavenLocal()
     mavenCentral()
+
+    maven {
+        url "${System.properties['maven.repository.base.url']}/${System.properties['maven.repository.snapshots']}"
+        allowInsecureProtocol = true
+    }
+    maven {
+        url "${System.properties['maven.repository.base.url']}/${System.properties['maven.repository.releases']}"
+        allowInsecureProtocol = true
+    }
 }
 
 publishing {
