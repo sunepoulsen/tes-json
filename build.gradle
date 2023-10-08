@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.owasp:dependency-check-gradle:7.3.2'
+        classpath 'org.owasp:dependency-check-gradle:8.4.0'
     }
 }
 
@@ -68,26 +68,25 @@ java {
 
 dependencies {
     // Jackson Json
-    api 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2'
 
     // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
     // Logging
-    implementation 'ch.qos.logback:logback-classic:1.4.5'
-    implementation 'org.slf4j:log4j-over-slf4j:2.0.4'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'org.slf4j:log4j-over-slf4j:2.0.9'
 
     // JUnit
-    testImplementation 'org.junit.vintage:junit-vintage-engine:5.9.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
 
     // Spock
-    testImplementation 'org.codehaus.groovy:groovy:3.0.13'
-    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
-    testImplementation 'cglib:cglib-nodep:3.3.0'
-    testImplementation 'org.objenesis:objenesis:3.2'
+    testImplementation 'org.apache.groovy:groovy:4.0.15'
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.8'
 }
 
 test {
@@ -110,7 +109,7 @@ changelog {
 
 release {
     git {
-        requireBranch = 'main'
+        requireBranch.set('main')
     }
 }
 
@@ -126,6 +125,8 @@ dependencyCheck {
 
 sonarqube {
     properties {
+        property 'sonar.gradle.skipCompile', 'true'
+        
         property 'sonar.dependencyCheck.severity.blocker', '9.0'
         property 'sonar.dependencyCheck.severity.critical', '7.0'
         property 'sonar.dependencyCheck.severity.major', '4.0'

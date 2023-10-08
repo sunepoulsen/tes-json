@@ -13,7 +13,7 @@ class JsonMapperSpec extends Specification {
     private static final LocalDate LOCAL_DATE = LocalDate.of(2021, 1, 20)
     private static final LocalTime LOCAL_TIME = LocalTime.of(12, 4, 12)
     private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.of(2021, 1, 20, 12, 4, 12)
-    private static final ZonedDateTime ZONED_DATE_TIME = ZonedDateTime.of(LOCAL_DATE_TIME, ZoneId.of('UTC'))
+    private static final ZonedDateTime ZONED_DATE_TIME = ZonedDateTime.of(LOCAL_DATE_TIME, ZoneId.of('Z'))
 
     @Unroll
     void "Encode #_datatype as json"() {
