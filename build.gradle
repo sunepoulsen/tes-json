@@ -113,6 +113,10 @@ release {
     }
 }
 
+tasks.afterReleaseBuild.dependsOn tasks.patchChangelog
+tasks.afterReleaseBuild.dependsOn tasks.publish
+tasks.afterReleaseBuild.dependsOn tasks.sonarqube
+
 jacocoTestReport {
     reports {
         xml.required = true
