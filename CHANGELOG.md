@@ -25,7 +25,8 @@ For release-dates, use date-format: YYYY-MM-DD
 - [TES-60](https://sunepoulsen.atlassian.net/browse/TES-60): Update dependencies as part of TES-60.
 - [TES-71](https://sunepoulsen.atlassian.net/browse/TES-71): Update Gradle and dependencies of TES-libraries.
 
-## 1.0.0 - 2022-03-09
+## 1.0.0 - 09-03-2022
+
 ### Features
 - [TES-8](https://sunepoulsen.atlassian.net/browse/TES-8): Library for JSON handling
 
