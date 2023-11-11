@@ -23,9 +23,15 @@ For release-dates, use date-format: DD-MM-YYYY
 
 ### Features
 
+- [TES-107](https://sunepoulsen.atlassian.net/browse/TES-107): Update documentation of TES-libraries
+
 ### Fixed
 
 ### Security
+
+- [TES-107](https://sunepoulsen.atlassian.net/browse/TES-107): Update dependencies to latest version 
+  and resolved the vulnerabilities: 
+  - [CVE-2023-35116](https://nvd.nist.gov/vuln/detail/CVE-2023-35116)
 
 ## 1.0.1 - 09-10-2023
 
