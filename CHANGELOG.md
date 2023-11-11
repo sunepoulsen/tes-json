@@ -23,6 +23,8 @@ For release-dates, use date-format: DD-MM-YYYY
 
 ### Features
 
+- [TES-107](https://sunepoulsen.atlassian.net/browse/TES-107): Update documentation of TES-libraries
+
 ### Fixed
 
 ### Security
