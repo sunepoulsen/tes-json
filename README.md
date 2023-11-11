@@ -1,56 +1,23 @@
 # TES JSON
 
-Library for JSON handling
+TES JSON is part of [Tech Easy Solutions](https://sunepoulsen.atlassian.net/wiki/spaces/TES) suite and is provided
+to make it easier to work in a common way with JSON in solutions that is based on `Tech Easy Solutions`
 
-## Features
+It contains commons way to work with JSON and utility classes get going more rapidly.
 
-- Encoding of classes as JSON with Jackson
-- Decoding of JSON to classes with Jackson
-- Loading of Jackson modules from the classpath
+## Documentation
 
-## Usage
+The documentation of how to use this library can be found the here:
 
-### Encoding JSON
-
-To encode a class into JSON do the following:
-
-```java
-String json = JsonMapper.encode(value);
-```
-
-### Decoding JSON
-
-To decode json into a class do the following:
-
-```java
-String json = "{...}"
-ClassType value = JsonMapper.decode(json, ClassType.class);
-```
-
-### Customize the use of JsonMapper
-
-To use a custom `ObjectMapper` with JsonMapper do:
-
-```java
-ObjectMapper objectMapper = new ObjectMapper();
-
-// Config objectMapper
-// ...
-// ...
-
-JsonMapper jsonMapper = new JsonMapper(objectMapper);
-
-// Use jsonMapper
-String json = jsonMapper.encode(value);
-ClassType value = jsonMapper.decode(json, ClassType.class);
-```
+[Documentation](doc/README.md)
 
 ## Building
 
 The project is built with Gradle and is requiring Java 17.
 
-The project is integrated with Nexus and SonarQube and is using the following properties
-from `~/.gradle/gradle.properties`:
+The project is integrated with [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) 
+and [SonarQube](https://www.sonarsource.com/products/sonarqube/) and is using the following properties from 
+`~/.gradle/gradle.properties`:
 
 ```properties
 # System properties for Nexus
@@ -92,6 +59,25 @@ developer needs:
 
 If you want to change the Java distribution being used then you can overwrite the variable `JAVA_VERSION` in
 `pipeline.sh`
+
+## Code Analysing
+
+The project can be analyzed with [SonarQube](https://www.sonarsource.com/products/sonarqube/) with:
+
+```shell
+./gradlew sonar
+```
+
+This will also analyze all dependencies for vulnerabilities. This is done with the 
+[org.owasp:dependency-check-gradle](https://github.com/dependency-check/dependency-check-gradle) plugin.
+
+Analysing the vulnerabilities without the SonarQube analysis can be done with:
+
+```shell
+./gradlew dependencyCheckAnalyze
+```
+
+The result of the scan can be found here: `build/reports/dependency-check-*`
 
 ## Releasing
 
